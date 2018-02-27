@@ -1,9 +1,10 @@
 # template for the Intel fortran compiler
 # typical use with mkmf
 # mkmf -t template.ifc -c"-Duse_libMPI -Duse_netCDF" path_names /usr/local/include
-FC = /opt/intel/composer_xe_2011_sp1.6.233/bin/intel64/ifort
-LD = /opt/intel/composer_xe_2011_sp1.6.233/bin/intel64/ifort
-FFLAGS  = -convert big_endian -safe_cray_ptr -ftz -i4 -r8 -fpp -O2 -I$(fms_home)/bin/nc_inc -I/opt/intel/impi/4.0.3.008/intel64/include/ -D__IFC
-LDFLAGS = -L$(fms_home)/bin/nc_lib -lnetcdf -L/opt/intel/impi/4.0.3.008/intel64/lib -lmpi -lmpigf -lmpigi -lpthread -lrt
-CFLAGS  = -I$(fms_home)/bin/nc_inc -I/opt/intel/impi/4.0.3.008/intel64/include -D__IFC 
-    
+# Modified by Ho-Hsuan Wei, 20161026, to account for updated paths due to Fram upgrade Oct-2016
+FC = /share/apps/software/rhel6/software/ifort/2016.1.150-GCC-4.9.3-2.25/compilers_and_libraries_2016.1.150/linux/bin/intel64/ifort
+LD = /share/apps/software/rhel6/software/ifort/2016.1.150-GCC-4.9.3-2.25/compilers_and_libraries_2016.1.150/linux/bin/intel64/ifort
+FFLAGS = -convert big_endian -safe_cray_ptr -ftz -i4 -r8 -fpp -O2 -I$(fms_home)/bin/nc_inc -I/share/apps/software/rhel6/software/impi/5.1.2.150-iccifort-2016.1.150-GCC-4.9.3-2.25/intel64/include -D__IFC
+LDFLAGS = -L$(fms_home)/bin/nc_lib -lnetcdf -L/share/apps/software/rhel6/software/impi/5.1.2.150-iccifort-2016.1.150-GCC-4.9.3-2.25/intel64/lib -lmpi -lmpigf -lmpigi -lpthread -lrt
+CFLAGS = -I$(fms_home)/bin/nc_inc -I/share/apps/software/rhel6/software/impi/5.1.2.150-iccifort-2016.1.150-GCC-4.9.3-2.25/intel64/include -D__IFCi
+   
